@@ -1,0 +1,15 @@
+<h1>News Feed</h1>
+
+<table>
+  <tr>
+    <th>Posts</th>
+    <th></th>
+  </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.body %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+    </tr>
+  <% end %>
+</table>
