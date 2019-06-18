@@ -1,0 +1,12 @@
+
+<%= form_with scope: :posts, local: true do |form| %>
+
+  <p>
+    <%= form.label :post %><br>
+    <%= form.text_area :body %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
