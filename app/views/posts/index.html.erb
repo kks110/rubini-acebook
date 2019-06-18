@@ -10,6 +10,7 @@
     <tr>
       <td><%= post.body %></td>
       <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Update', edit_post_path(post) %></td>
     </tr>
   <% end %>
 </table>
