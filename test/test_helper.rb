@@ -1,5 +1,10 @@
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start 'rails' do
+  add_filter '/bin/'
+  add_filter '/db/'
+  add_filter '/spec/' # for rspec
+  add_filter '/test/' # for minitest
+end
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
