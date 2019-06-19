@@ -7,7 +7,7 @@ class PostFlowTest < ApplicationSystemTestCase
       visit new_post_url
       body = 'Hello!'
       fill_in 'post[body]', with: body
-      click_on 'Save Post'
+      click_on 'Create Post'
       assert_text body
     end
 
