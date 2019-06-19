@@ -1,4 +1,7 @@
 require 'simplecov'
+# require 'capybara/rails'
+# require 'minitest/rails/capybara'
+
 SimpleCov.start 'rails' do
   add_filter '/bin/'
   add_filter '/db/'
