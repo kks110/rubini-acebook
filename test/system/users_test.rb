@@ -13,9 +13,9 @@ class UsersTest < ApplicationSystemTestCase
 
   test 'can log in' do
     visit login_url
-    fill_in 'user[email]', with: 'ollie@makers.com'
-    fill_in 'user[password]', with: 'HelloEverybody'
-    click_on 'Login'
+    fill_in 'session[email]', with: 'ollie@makers.com'
+    fill_in 'session[password]', with: 'HelloEverybody'
+    click_on 'Save Session'
     assert_text 'Ollie'
   end
 
