@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+before_action :require_user
+
   def index
     @posts = Post.all
   end
