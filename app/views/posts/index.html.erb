@@ -9,6 +9,7 @@
   <% @posts.each do |post| %>
     <tr>
       <td><%= post.body %></td>
+      <td><%= User.find(post.user_id).username %></td>
       <td><%= link_to 'Show', post_path(post) %></td>
       <td><%= link_to 'Update', edit_post_path(post) %></td>
       <td><%= link_to 'Delete', post_path(post),
