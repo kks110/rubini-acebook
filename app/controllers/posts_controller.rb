@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-before_action :require_user
+  before_action :require_user
 
   def index
     @posts = Post.all
@@ -20,7 +20,7 @@ before_action :require_user
 
   def create
     @post = Post.new(post_params)
-
+    @post.user_id = current_user.id
     if @post.save
       redirect_to @post
     else
