@@ -1,12 +1,17 @@
 <% if @post.errors.any? %>
   <div id="error_explanation">
-    <h2>
+    <p>
       <%= pluralize(@post.errors.count, "error") %> prohibited
       this post from being saved:
-    </h2>
+    </p>
     <ul>
       <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
       <% end %>
     </ul>
   </div>

@@ -5,6 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+  id: 1
   username: Ollie
   email: ollie@makers.com
   password_digest: <%= BCrypt::Password.create("HelloEverybody", cost: 4) %>
+
+two:
+  id: 2
+  username: Jayda
+  email: jayda@makers.com
+  password_digest: <%= BCrypt::Password.create("HiEveryone", cost: 4) %>
