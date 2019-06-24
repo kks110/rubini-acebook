@@ -28,4 +28,16 @@ class PostsTest < ApplicationSystemTestCase
     refute_text 'Post1'
   end
 
+  test 'can only delete own post' do
+    visit login_url
+    fill_in 'session[email]', with: 'jayda@makers.com'
+    fill_in 'session[password]', with: 'HiEveryone'
+    click_on 'Save Session'
+    visit posts_url
+    assert_text 'Post1'
+    click_link('Delete', :match => :first)
+    page.driver.browser.switch_to.alert.accept
+    assert_text 'Post1'
+  end
+
 end
