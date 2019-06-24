@@ -9,9 +9,24 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <%= link_to 'Posts', posts_path, :class => "nav-link #{active_class('posts', 'index')}" %>
+      </li>
+      <li class="nav-item <%= active_class('sessions', 'new')%>">
+        <%= link_to 'Log in', login_path, :class => "nav-link #{active_class('sessions', 'new')}" %>
+      </li>
+      <li class="nav-item <%= active_class('users', 'new')%>">
+        <%= link_to 'Sign up', signup_path, :class => "nav-link #{active_class('users', 'new')}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Log Out', logout_path, :class => "nav-link", method: :delete %>
+      </li>
+    </ul>
+  </header>
+
   <body>
-    <%= link_to 'Sign up', new_user_path %>
-    <%= link_to 'Log Out', logout_path, method: :delete %>
     <%= yield %>
   </body>
 </html>
