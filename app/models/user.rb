@@ -13,7 +13,7 @@ class User < ApplicationRecord
              uniqueness: true,
              format: { with: VALID_EMAIL_REGEX }
 
-  validates :password_digest, presence: true,
+  validates :password, presence: true,
              length: { minimum: 6 }
 
   has_secure_password

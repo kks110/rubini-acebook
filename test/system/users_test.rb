@@ -4,11 +4,11 @@ class UsersTest < ApplicationSystemTestCase
 
   test 'can add a new user by sign up' do
     visit signup_url
-    fill_in 'user[username]', with: 'Jayda'
-    fill_in 'user[email]', with: 'jayda@makers.com'
+    fill_in 'user[username]', with: 'Kelvin'
+    fill_in 'user[email]', with: 'kelvin@makers.com'
     fill_in 'user[password]', with: 'HelloWorld'
     click_on 'Create User'
-    assert_text 'Jayda'
+    assert_text 'kelvin'
   end
 
   test 'can log in' do
