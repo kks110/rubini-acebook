@@ -16,5 +16,8 @@ class User < ApplicationRecord
   validates :password, presence: true,
              length: { minimum: 6 }
 
+  include Gravtastic
+  gravtastic :size => 50, :default => "mp"
+
   has_secure_password
 end
