@@ -3,7 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.new(username: 'Kelvin', email: 'kelvin@makers.com', password_digest: 'HelloYou' )
+    @user = User.new(username: 'Kelvin', email: 'kelvin@makers.com', password: 'HelloYou')
   end
 
   test 'user should be vaild' do
@@ -21,7 +21,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'password should be present' do
-    @user.password_digest = ' '
+    @user.password = ' '
     assert_not @user.valid?
   end
 
@@ -36,7 +36,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'password should not be too short' do
-    @user.password_digest = "p"
+    @user.password = "p"
     assert_not @user.valid?
   end
 
