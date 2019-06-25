@@ -1,11 +1,20 @@
-<h1>Login Here</h1>
 
-<%= form_for :session, url: login_path do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+<h2 class="text-center">Log in</h2>
+<div class ="card mx-auto" style="width: 25vw;">
+  <div class="card-body">
+  <%= form_for :session, url: login_path do |f| %>
+  <div class="form-group">
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+    <%= f.label :email %>
+    <%= f.email_field :email, :class => "form-control", :placeholder => "Enter email" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, :class => "form-control", :placeholder => "Password" %>
+  </div>
 
-  <%= f.submit %>
+  <%= f.submit 'Log in', :class => "btn btn-outline-primary" %>
+</div>
+</div>
+
 <% end %>
