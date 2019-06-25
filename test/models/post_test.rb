@@ -3,10 +3,10 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
 
   def setup
-    @post = Post.new(body: "sports")
+    @post = Post.new(body: "sports", user_id: 1)
   end
 
-  test 'category should be vaild' do
+  test 'post should be vaild' do
     assert @post.valid?
   end
 
