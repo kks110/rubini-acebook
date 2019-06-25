@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       flash[:success] = "Your post has been added"
-      redirect_to @post
+      redirect_to posts_path
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
     if @post.update(post_params)
       flash[:success] = "Your post has been updated"
-      redirect_to @post
+      redirect_to posts_path
     else
       render 'edit'
     end
