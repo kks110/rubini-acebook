@@ -1,16 +1,16 @@
 <h1 class="text-center">News Feed</h1>
-
-
-<%= link_to 'New post', new_post_path %>
+<div class="text-center">
+  <br>
+<%= link_to '+', new_post_path, :class => "btn btn-outline-secondary btn-circle" %>
+<br><br>
+</div>
 
 <% @posts.each do |post| %>
-<div class="card mx-auto" style="width: 18rem;">
+<div class="card mx-auto" style="width: 25vw;">
   <div class="card-body">
     <p class="card-text"><%= simple_format(post.body) %></p>
     <h6 class="card-subtitle mb-2 text-muted"><%= User.find(post.user_id).username %></h6>
     <h6 class="card-subtitle mb-2 text-muted"><%= time_calculation(post.created_at) %></h6>
-
-    <%= link_to 'Show', post_path(post), :class => "card-link"  %>
     <%= link_to 'Update', edit_post_path(post), :class => "card-link" %>
     <%= link_to 'Delete', post_path(post), :class => "card-link",
     method: :delete,
