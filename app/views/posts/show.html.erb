@@ -2,7 +2,7 @@
 
 <p>
   <strong>Text:</strong>
-  <%= @post.body %>
+  <%= simple_format(@post.body) %>
 </p>
 
 <%= link_to 'Back', posts_path %>
