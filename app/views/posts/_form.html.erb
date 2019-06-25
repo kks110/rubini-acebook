@@ -17,14 +17,17 @@
   </div>
 <% end %>
 
-<%= form_with(model: @post, local: true) do |form| %>
-  <p>
-    <%= form.label :post %><br>
-    <%= form.text_area :body %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-
-<% end %>
+<div class="m-5">
+  <h2 class="text-center">Your Post</h2>
+  <div class ="card mx-auto" style="width: 25vw">
+    <div class="card-body">
+    <%= form_with(model: @post, local: true) do |form| %>
+      <div class="form-group">
+        <%= form.label :post %>
+        <%= form.text_area :body, :class => "form-control", :size => "20x5" %>
+      </div>
+      <%= form.submit 'Save Post', :class => "btn btn-outline-primary" %>
+    <% end %>
+    </div>
+  </div>
+</div>
