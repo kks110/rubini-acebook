@@ -14,9 +14,13 @@ class UsersController < ApplicationController
     end
   end
 
-  # def show
-  #   render 'show'
-  # end
+  def destroy
+    @user = User.find_by username: (current_user.username)
+    @user.destroy
+    session[:user_id] = nil
+    flash[:success] = "Your account has been deleted"
+    redirect_to login_path
+  end
 
   private
 
