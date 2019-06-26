@@ -6,11 +6,11 @@ class FlashMessagesTest < ApplicationSystemTestCase
     visit login_url
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
-    click_on 'Save Session'
+    click_button 'Log In'
     visit new_post_url
     body = 'Hello!'
     fill_in 'post[body]', with: body
-    click_on 'Create Post'
+    click_on 'Save Post'
     assert_text "Your post has been added"
   end
 
@@ -19,7 +19,7 @@ class FlashMessagesTest < ApplicationSystemTestCase
     fill_in 'user[username]', with: 'Ollie'
     fill_in 'user[email]', with: 'ollie@makers.com'
     fill_in 'user[password]', with: 'HelloEverybody'
-    click_on 'Create User'
+    click_on 'Sign Up'
     assert_text 'Username has already been taken'
   end
 
@@ -28,7 +28,7 @@ class FlashMessagesTest < ApplicationSystemTestCase
     fill_in 'user[username]', with: 'Kelvin'
     fill_in 'user[email]', with: 'kelvin@makers.com'
     fill_in 'user[password]', with: 'HelloEverybody'
-    click_on 'Create User'
+    click_on 'Sign Up'
     assert_text 'Welcome kelvin'
   end
 
@@ -36,7 +36,7 @@ class FlashMessagesTest < ApplicationSystemTestCase
     visit login_url
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
-    click_on 'Save Session'
+    click_button 'Log In'
     assert_text 'Welcome Ollie'
   end
 
@@ -44,7 +44,7 @@ class FlashMessagesTest < ApplicationSystemTestCase
     visit login_url
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloE'
-    click_on 'Save Session'
+    click_button 'Log In'
     assert_text "Incorrect details. Please try again."
   end
 
@@ -52,7 +52,7 @@ class FlashMessagesTest < ApplicationSystemTestCase
     visit login_url
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
-    click_on 'Save Session'
+    click_button 'Log In'
     visit posts_url
     assert_text 'Post1'
     click_link('Delete', :match => :first)
@@ -60,51 +60,28 @@ class FlashMessagesTest < ApplicationSystemTestCase
     assert_text "Your post has been deleted"
   end
 
-  test 'failure error on delete post' do
-    visit login_url
-    fill_in 'session[email]', with: 'jayda@makers.com'
-    fill_in 'session[password]', with: 'HiEveryone'
-    click_on 'Save Session'
-    visit posts_url
-    assert_text 'Post1'
-    click_link('Delete', :match => :first)
-    page.driver.browser.switch_to.alert.accept
-    assert_text "Hands off! This is not your post."
-  end
-
   test 'success on post update' do
       visit login_url
       fill_in 'session[email]', with: 'ollie@makers.com'
       fill_in 'session[password]', with: 'HelloEverybody'
-      click_on 'Save Session'
+      click_button 'Log In'
       visit posts_url
       assert_text 'Post1'
       click_link('Update', :match => :first)
       fill_in 'post[body]', with: 'Test update'
-      click_on 'Update Post'
+      click_on 'Save Post'
       assert_text "Your post has been updated"
-  end
-
-  test 'failure error on post update' do
-    visit login_url
-    fill_in 'session[email]', with: 'jayda@makers.com'
-    fill_in 'session[password]', with: 'HiEveryone'
-    click_on 'Save Session'
-    visit posts_url
-    assert_text 'Post1'
-    click_link('Update', :match => :first)
-    assert_text "Hands off! This is not your post."
   end
 
   test 'failure error on post creation' do
     visit login_url
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
-    click_on 'Save Session'
+    click_button 'Log In'
     visit new_post_url
     body = 'H'
     fill_in 'post[body]', with: body
-    click_on 'Create Post'
+    click_on 'Save Post'
     assert_text "Body is too short (minimum is 2 characters)"
   end
 
@@ -112,7 +89,7 @@ class FlashMessagesTest < ApplicationSystemTestCase
     visit login_url
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
-    click_on 'Save Session'
+    click_button 'Log In'
     click_on 'Log Out'
     assert_text "You've logged out!"
   end

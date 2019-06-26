@@ -6,17 +6,17 @@ class SessionsTest < ApplicationSystemTestCase
     visit login_url
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
-    click_on 'Save Session'
-    assert_text 'New post'
+    click_button 'Log In'
+    assert_text '+'
   end
 
   test 'can log out' do
     visit login_url
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
-    click_on 'Save Session'
+    click_button 'Log In'
     click_on 'Log Out'
-    assert_text 'Login Here'
+    assert_text 'Log In'
   end
 
 end
