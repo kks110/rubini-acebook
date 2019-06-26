@@ -19,12 +19,5 @@ class UsersTest < ApplicationSystemTestCase
     assert_text 'Ollie'
   end
 
-test 'can view profile page' do
-  visit login_url
-  fill_in 'session[email]', with: 'ollie@makers.com'
-  fill_in 'session[password]', with: 'HelloEverybody'
-  click_button 'Log In'
-  click_on 'Ollie'
-  assert_text 'Profile Page'
-end
+
 end

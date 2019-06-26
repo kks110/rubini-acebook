@@ -51,4 +51,13 @@ class PostsTest < ApplicationSystemTestCase
     assert_text 'Test update'
   end
 
+  test 'can navigate to own profile page' do
+    visit login_url
+    fill_in 'session[email]', with: 'ollie@makers.com'
+    fill_in 'session[password]', with: 'HelloEverybody'
+    click_button 'Log In'
+    click_on 'profile'
+    assert_text 'hi'
+  end
+
 end
