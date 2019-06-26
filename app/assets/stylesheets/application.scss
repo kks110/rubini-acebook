@@ -11,24 +11,27 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
+$theme-colors: (
+  "primary": #8C2020,
+  "secondary": #732C2C,
+  "warning": #402525,
+  "light": #403535,
+  "dark": #0D0D0D
+  );
+
+
 @import "bootstrap";
 
-.rubini_ketchup {
-  color: #8C2020;
-}
-
-.rubini_red_wine {
-  color: #732C2C;
-}
-
-.rubini_vinegar {
-  color: #402525;
-}
-
-.rubini_grey_chocolate {
-  color: #403535;
-}
-
-.rubini_charcoal {
-  color: #0D0D0D;
+.btn-circle {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  text-decoration: none
 }

@@ -7,7 +7,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in 'user[username]', with: 'Kelvin'
     fill_in 'user[email]', with: 'kelvin@makers.com'
     fill_in 'user[password]', with: 'HelloWorld'
-    click_on 'Create User'
+    click_on 'Sign Up'
     assert_text 'kelvin'
   end
 
@@ -15,7 +15,7 @@ class UsersTest < ApplicationSystemTestCase
     visit login_url
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
-    click_on 'Save Session'
+    click_button 'Log In'
     assert_text 'Ollie'
   end
 

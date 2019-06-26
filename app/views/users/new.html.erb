@@ -19,15 +19,26 @@
 
 
 
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit %>
-<% end %>
+<div class="m-5">
+  <h2 class="text-center">Sign Up</h2>
+  <div class ="card mx-auto" style="width: 25vw">
+    <div class="card-body">
+      <%= form_for @user do |f| %>
+        <div class="form-group">
+          <%= f.label :username %>
+          <%= f.text_field :username, :class => "form-control", :placeholder => "Username" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, :class => "form-control", :placeholder => "Enter email" %>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, :class => "form-control", :placeholder => "Password" %>
+        </div>
+        <%= f.submit 'Sign Up', :class => "btn btn-outline-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
