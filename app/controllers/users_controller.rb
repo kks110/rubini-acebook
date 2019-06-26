@@ -14,8 +14,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+
+    if @user.update(user_params)
+      flash[:success] = "Your details have been updated"
+      redirect_to profile_path
+    else
+      flash[:error] = "Please try again"
+      render 'edit'
+    end
+  end
+
   def destroy
-    @user = User.find_by username: (current_user.username)
+    @user = current_user
     @user.destroy
     session[:user_id] = nil
     flash[:success] = "Your account has been deleted"

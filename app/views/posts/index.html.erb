@@ -12,7 +12,7 @@
     <h6 class="card-subtitle mb-2 text-muted"><%= User.find(post.user_id).username %></h6>
     <h6 class="card-subtitle mb-2 text-muted"><%= time_calculation(post.created_at) %></h6>
     <% if current_user.username == post.user.username %>
-    <%= link_to 'Update', edit_post_path(post), :class => "btn btn-outline-secondary" %>
+    <%= link_to 'Update', edit_post_path(post), :class => "btn btn-outline-light" %>
     <%= link_to 'Delete', post_path(post), :class => "btn btn-outline-secondary",
     method: :delete,
     data: { confirm: 'Are you sure?' } %>
