@@ -1,7 +1,17 @@
-<h1> My Profile <h1>
-  <%= current_user.username %>
-  <%= image_tag current_user.gravatar_url, :class => "rounded"%>
-
+<div class="d-flex p-2 flex-column">
+  <div class="align-self-center p-2">
+    <h1> My Profile <h1>
+  </div>
+  <div class="align-self-center p-2">
+    <%= image_tag current_user.gravatar_url, :class => "rounded", :style => "height: 10vmax"%><br>
+  </div>
+  <div class="p-1 text-center">
+    <%= current_user.username %>
+  </div>
+  <div class="align-self-center p-2">
+    <%= link_to 'Delete Account', delete_path, :class => "btn btn-outline-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>  
+</div>
 
   <% @posts.each do |post| %>
   <% if current_user.username == post.user.username %>
@@ -21,5 +31,3 @@
   </div>
   <br><br>
   <% end %>
-
-  <%= link_to 'Delete Account', delete_path, :class => "btn btn-outline-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
