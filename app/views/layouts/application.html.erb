@@ -10,7 +10,10 @@
 </head>
 
 <header>
-  <ul class="nav nav-pills p-3">
+  <ul class="nav nav-pills p-4">
+    <li class="nav-item">
+      <%= image_tag("rubini_logo.png", :alt => "Rubini Logo", :style => "height: 40px") %>
+    </li>
     <li class="nav-item">
       <%= link_to 'Posts', posts_path, :class => "nav-link #{active_class('posts', 'index')}" %>
     </li>
