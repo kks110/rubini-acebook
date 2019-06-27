@@ -51,12 +51,25 @@ class PostsTest < ApplicationSystemTestCase
     assert_text 'Test update'
   end
 
+  test 'can give an error on update a post' do
+    visit login_url
+    fill_in 'session[email]', with: 'ollie@makers.com'
+    fill_in 'session[password]', with: 'HelloEverybody'
+    click_button 'Log In'
+    visit posts_url
+    assert_text 'Post1'
+    click_link('Update', :match => :first)
+    fill_in 'post[body]', with: 'T'
+    click_on 'Save Post'
+    assert_text 'Body is too short (minimum is 2 characters)'
+  end
+
   test 'can navigate to own profile page' do
     visit login_url
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
     click_button 'Log In'
-    click_on 'Profile'
+    click_on 'Ollie'
     assert_text 'My Profile'
   end
 
