@@ -7,4 +7,22 @@ class PostsControllerTest < ActiveSupport::TestCase
     assert PostsController.new.time_calculation(created_at_time, time_now) == "52 seconds ago"
   end
 
+  test "should create a new post" do
+     assert_difference('Post.count') do
+       Post.create(body: 'rails', user_id: 1)
+   end
+  end
+
+  test "should not create a new post" do
+     assert_no_difference('Post.count') do
+      Post.create(body: 'rails')
+    end
+  end
+
+  test "can delete post" do
+      assert_difference('Post.count', -1) do
+      Post.destroy(1)
+    end
+  end
+
 end

@@ -23,14 +23,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
   end
 
-  # test "should delete a user" do
-  #   user = User.new
-  #   user.count
-  #   assert_difference('User.count') do
-  #   delete user_url, params: { :id => 1 }
-  # end
-  # end
-
-
+  test "can delete users" do
+    assert_difference('User.count', -1) do
+      User.destroy(1)
+    end
+  end
 
 end

@@ -17,6 +17,7 @@ class SessionsTest < ApplicationSystemTestCase
     click_button 'Log In'
     click_on 'Log Out'
     assert_text 'Log In'
+    expect(session[:user_id] == nil) 
   end
 
 end

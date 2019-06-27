@@ -9,4 +9,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     get login_url
     assert_response :success
   end
+  test "it can start a new session" do
+    
+  end
 end
