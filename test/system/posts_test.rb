@@ -56,7 +56,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
     click_button 'Log In'
-    click_on 'Profile'
+    click_on 'Ollie'
     assert_text 'My Profile'
   end
 

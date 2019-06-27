@@ -24,7 +24,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
     click_button 'Log In'
-    click_on 'Profile'
+    click_on 'Ollie'
     click_on 'Delete Account'
     page.driver.browser.switch_to.alert.accept
     fill_in 'session[email]', with: 'ollie@makers.com'
@@ -38,7 +38,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in 'session[email]', with: 'ollie@makers.com'
     fill_in 'session[password]', with: 'HelloEverybody'
     click_button 'Log In'
-    click_on 'Profile'
+    click_on 'Ollie'
     click_on 'Update Account'
     fill_in 'user[username]', with: 'Kelvin'
     fill_in 'user[password]', with: 'HelloWorld2'
