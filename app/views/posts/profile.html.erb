@@ -25,7 +25,11 @@
       <h6 class="card-subtitle mb-2 text-muted"><%= time_calculation(post.created_at) %></h6>
         <div class="row">
           <div class="col-sm">
-            <%= link_to "👍 #{post.likes.count unless post.likes.count == 0}", post_likes_path(post), method: :post, :class => "btn btn-outline-light" %>
+            <% if already_liked?(post) %>
+                <%= link_to "👍 #{post.likes.count}", post_like_path(post, already_liked?(post)), method: :delete, :class => "btn btn-light" %>
+              <% else %>
+              <%= link_to "👍 #{post.likes.count unless post.likes.count == 0}", post_likes_path(post), method: :post, :class => "btn btn-outline-light" %>
+            <% end %>
           </div>
           <div class="col-sm" align="center">
             <%= link_to 'Update', edit_post_path(post), :class => "btn btn-outline-light" %>
