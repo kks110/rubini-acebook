@@ -60,6 +60,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def profile
+    @posts = Post.all.order(created_at: :desc)
+  end
+
   private
   def post_params
     params.require(:post).permit(:body)

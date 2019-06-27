@@ -1,0 +1,36 @@
+<div class="d-flex p-2 flex-column">
+  <div class="align-self-center p-2">
+    <h1> My Profile <h1>
+  </div>
+  <div class="align-self-center p-2">
+    <%= image_tag current_user.gravatar_url, :class => "rounded", :style => "height: 10vmax"%><br>
+  </div>
+  <div class="p-1 text-center">
+    <%= current_user.username %>
+  </div>
+  <div class="align-self-center py-lg-4">
+    <%= link_to 'Update Account', edit_user_path(current_user), :class => "btn btn-outline-light", :style => "width: 100px"%>
+    <%= link_to 'Delete Account', user_path(current_user), :class => "btn btn-outline-secondary", :style => "width: 100px",
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>
+
+  <% @posts.each do |post| %>
+  <% if current_user.username == post.user.username %>
+  <div class="card mx-auto" style="width: 25vw;">
+    <div class="card-body">
+
+      <p class="card-text"><%= simple_format(post.body) %></p>
+      <h6 class="card-subtitle mb-2 text-muted"><%= User.find(post.user_id).username %></h6>
+      <h6 class="card-subtitle mb-2 text-muted"><%= time_calculation(post.created_at) %></h6>
+
+      <%= link_to 'Update', edit_post_path(post), :class => "btn btn-outline-light" %>
+      <%= link_to 'Delete', post_path(post), :class => "btn btn-outline-secondary",
+      method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+  </div>
+  <br><br>
+  <% end %>
