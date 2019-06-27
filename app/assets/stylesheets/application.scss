@@ -24,6 +24,11 @@ $theme-colors: (
 
 @import "bootstrap";
 
+body {
+  background-color: #F7F7F7;
+}
+
+
 .btn-circle {
   text-align: center;
   width: 50px;
