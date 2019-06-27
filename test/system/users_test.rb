@@ -50,4 +50,18 @@ class UsersTest < ApplicationSystemTestCase
     assert_text 'kelvin'
   end
 
+  test 'can get error when updating user details' do
+    visit login_url
+    fill_in 'session[email]', with: 'ollie@makers.com'
+    fill_in 'session[password]', with: 'HelloEverybody'
+    click_button 'Log In'
+    click_on 'Ollie'
+    click_on 'Update Account'
+    fill_in 'user[username]', with: 'Kelvin'
+    fill_in 'user[password]', with: 'He'
+    click_on 'Confirm'
+    assert_text 'Please try again'
+
+  end
+
 end

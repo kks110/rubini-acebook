@@ -1,9 +1,5 @@
 <% if @post.errors.any? %>
   <div id="error_explanation">
-    <p>
-      <%= pluralize(@post.errors.count, "error") %> prohibited
-      this post from being saved:
-    </p>
     <ul>
       <% @post.errors.full_messages.each do |msg| %>
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
