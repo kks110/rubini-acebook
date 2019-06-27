@@ -13,12 +13,10 @@
     <h6 class="card-subtitle mb-2 text-muted"><%= time_calculation(post.created_at) %></h6>
       <div class="row">
         <div class="col-sm">
-          <% post.likes.each do |like| %>
-            <% if current_user.id == like.user_id %>
-              <%= link_to "👍 #{post.likes.count}", post_like_path(post, like), method: :delete, :class => "btn btn-light" %>
+          <% if already_liked?(post) %>
+              <%= link_to "👍 #{post.likes.count}", post_like_path(post, already_liked?(post)), method: :delete, :class => "btn btn-light" %>
             <% else %>
             <%= link_to "👍 #{post.likes.count unless post.likes.count == 0}", post_likes_path(post), method: :post, :class => "btn btn-outline-light" %>
-            <% end %>
           <% end %>
         </div>
         <% if current_user.username == post.user.username %>
