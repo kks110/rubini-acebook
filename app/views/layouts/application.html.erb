@@ -31,9 +31,8 @@
     </li>
     <% unless current_page?('/profile') %>
     <li class="nav-item ml-auto mr-1">
-      <%= current_user.username %>
+      <%= link_to "#{current_user.username}", profile_path %>
       <%= image_tag current_user.gravatar_url, :class => "rounded"%>
-      <%= link_to 'Profile', profile_path %>
     </li>
     <% end %>
     <% end %>
