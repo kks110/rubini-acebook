@@ -29,7 +29,7 @@
     <li class="nav-item">
       <%= link_to 'Log Out', logout_path, :class => "nav-link", method: :delete %>
     </li>
-    <% unless current_page?('/profile') %>
+    <% unless current_page?(controller: 'posts', action: 'profile', id: current_user.id) %>
     <li class="nav-item ml-auto mr-1">
       <%= link_to "#{current_user.username}", profile_path(current_user) %>
       <%= image_tag current_user.gravatar_url, :class => "rounded"%>
