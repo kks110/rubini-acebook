@@ -20,16 +20,27 @@
   <% if current_user.username == post.user.username %>
   <div class="card mx-auto" style="width: 25vw;">
     <div class="card-body">
-
       <p class="card-text"><%= simple_format(post.body) %></p>
       <h6 class="card-subtitle mb-2 text-muted"><%= User.find(post.user_id).username %></h6>
       <h6 class="card-subtitle mb-2 text-muted"><%= time_calculation(post.created_at) %></h6>
-
-      <%= link_to 'Update', edit_post_path(post), :class => "btn btn-outline-light" %>
-      <%= link_to 'Delete', post_path(post), :class => "btn btn-outline-secondary",
-      method: :delete,
-      data: { confirm: 'Are you sure?' } %>
-      <% end %>
+        <div class="row">
+          <div class="col-sm">
+            <% if already_liked?(post) %>
+                <%= link_to "👍 #{post.likes.count}", post_like_path(post, already_liked?(post)), method: :delete, :class => "btn btn-light" %>
+              <% else %>
+              <%= link_to "👍 #{post.likes.count unless post.likes.count == 0}", post_likes_path(post), method: :post, :class => "btn btn-outline-light" %>
+            <% end %>
+          </div>
+          <div class="col-sm" align="center">
+            <%= link_to 'Update', edit_post_path(post), :class => "btn btn-outline-light" %>
+          </div>
+          <div class="col-sm" align="right">
+            <%= link_to 'Delete', post_path(post), :class => "btn btn-outline-secondary",
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+          </div>
+          <% end %>
+        </div>
     </div>
   </div>
   <br><br>

@@ -1,9 +1,5 @@
 <% if @user.errors.any? %>
   <div id="error_explanation">
-    <p>
-      <%= pluralize(@user.errors.count, "error") %> prohibited
-      this user from being created:
-    </p>
     <ul>
       <% @user.errors.full_messages.each do |msg| %>
       <div class="alert alert-danger alert-dismissible fade show" role="alert">

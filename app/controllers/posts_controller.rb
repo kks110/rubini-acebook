@@ -71,9 +71,5 @@ class PostsController < ApplicationController
 
   def correct_user
     @post = Post.find(params[:id])
-    unless @post.user_id == current_user.id
-      flash[:error] = "Hands off! This is not your post."
-      redirect_to posts_path
-    end
   end
 end
