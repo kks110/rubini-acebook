@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = current_user
+    @user = User.find(params[:id])
     @user.destroy
     session[:user_id] = nil
     flash[:success] = "Your account has been deleted"

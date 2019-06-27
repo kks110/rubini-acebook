@@ -10,7 +10,9 @@
   </div>
   <div class="align-self-center py-lg-4">
     <%= link_to 'Update Account', edit_user_path(current_user), :class => "btn btn-outline-light", :style => "width: 100px"%>
-    <%= link_to 'Delete Account', delete_path, :class => "btn btn-outline-secondary", :style => "width: 100px", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Delete Account', user_path(current_user), :class => "btn btn-outline-secondary", :style => "width: 100px",
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
   </div>
 </div>
 

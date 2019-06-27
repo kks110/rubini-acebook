@@ -61,8 +61,7 @@ class PostsController < ApplicationController
   end
 
   def profile
-        @posts = Post.all.order(created_at: :desc)
-    render 'profile'
+    @posts = Post.all.order(created_at: :desc)
   end
 
   private
