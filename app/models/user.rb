@@ -18,7 +18,7 @@ class User < ApplicationRecord
              length: { minimum: 6 }
 
   include Gravtastic
-  gravtastic :size => 50, :default => "mp"
+  gravtastic :size => 250, :default => "mp"
 
   has_secure_password
 end
