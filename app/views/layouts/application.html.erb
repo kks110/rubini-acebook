@@ -1,65 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>RubiniAcebook</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+  <head>
+    <title>RubiniAcebook</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<header>
-  <ul class="nav nav-pills p-4">
-    <li class="nav-item">
-      <%= image_tag("rubini_logo.png", :alt => "Rubini Logo", :style => "height: 40px") %>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'Posts', posts_path, :class => "nav-link #{active_class('posts', 'index')}" %>
-    </li>
-    <% unless logged_in? %>
-    <li class="nav-item <%= active_class('sessions', 'new')%>">
-      <%= link_to 'Log in', login_path, :class => "nav-link #{active_class('sessions', 'new')}" %>
-    </li>
-    <li class="nav-item <%= active_class('users', 'new')%>">
-      <%= link_to 'Sign up', signup_path, :class => "nav-link #{active_class('users', 'new')}" %>
-    </li>
-    <% end %>
-    <% if logged_in? %>
-    <li class="nav-item">
-      <%= link_to 'Log Out', logout_path, :class => "nav-link", method: :delete %>
-    </li>
-    <% unless current_page?(controller: 'posts', action: 'profile', id: current_user.id) %>
-    <li class="nav-item ml-auto">
-      <%= link_to "#{current_user.username}", profile_path(current_user) %>
-      <%= image_tag current_user.gravatar_url, :class => "rounded", :style => "height: 60px"%>
-    </li>
-    <% end %>
-    <% end %>
-  </ul>
+  <header>
+    <ul class="nav nav-pills p-4">
+      <li class="nav-item">
+        <%= image_tag("rubini_logo.png", alt: "Rubini Logo", style: "height: 40px") %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Posts', posts_path, class: "nav-link #{active_class('posts', 'index')}" %>
+      </li>
+      <% unless logged_in? %>
+        <li class="nav-item <%= active_class('sessions', 'new')%>">
+          <%= link_to 'Log in', login_path, class: "nav-link #{active_class('sessions', 'new')}" %>
+        </li>
+        <li class="nav-item <%= active_class('users', 'new')%>">
+          <%= link_to 'Sign up', signup_path, class: "nav-link #{active_class('users', 'new')}" %>
+        </li>
+      <% end %>
+      <% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to 'Log Out', logout_path, class: "nav-link", method: :delete %>
+        </li>
+        <% unless current_page?(controller: 'posts', action: 'profile', id: current_user.id) %>
+          <li class="nav-item ml-auto">
+            <%= link_to "#{current_user.username}", profile_path(current_user) %>
+            <%= image_tag current_user.gravatar_url, class: "rounded", style: "height: 60px" %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </header>
 
-</header>
+  <body class="background">
+    <div class="container">
+      <% if flash[:success] %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <%= flash[:success] %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
 
-<body class="background">
-  <div class="container">
-    <% if flash[:success] %>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <%= flash[:success] %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <% if flash[:error] %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <%= flash[:error] %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+
+      <%= yield %>
     </div>
-    <% end %>
-
-    <% if flash[:error] %>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <%= flash[:error] %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <% end %>
-
-    <%= yield %>
-  </div>
-</body>
+  </body>
 </html>
