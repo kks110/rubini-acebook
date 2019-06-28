@@ -22,7 +22,7 @@ bundle install
 
 ## Usage
 Run the migration files to ensure you have the databases.
-```python
+```bash
 rails db:migrate
 ```
 
