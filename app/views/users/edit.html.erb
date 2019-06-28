@@ -5,19 +5,19 @@
       <%= form_for @user do |f| %>
         <div class="form-group">
           <%= f.label :username %>
-          <%= f.text_field :username, :class => "form-control", :placeholder => "New Username" %>
+          <%= f.text_field :username, class: "form-control", placeholder: "New Username" %>
         </div>
         <div class="form-group">
           <%= f.label :email %>
-          <%= f.email_field :email, :class => "form-control", :placeholder => "New email" %>
+          <%= f.email_field :email, class: "form-control", placeholder: "New email" %>
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
           <%= f.label :password %>
-          <%= f.password_field :password, :class => "form-control", :placeholder => "New Password" %>
+          <%= f.password_field :password, class: "form-control", placeholder: "New Password" %>
         </div>
-        <%= link_to 'Cancel', profile_path, :class => "btn btn-outline-light" %>
-        <%= f.submit 'Confirm', :class => "btn btn-outline-success" %>
+        <%= f.submit 'Confirm', class: "btn btn-outline-success" %>
+        <%= link_to 'Cancel', profile_path, class: "btn btn-outline-light" %>
       <% end %>
     </div>
   </div>

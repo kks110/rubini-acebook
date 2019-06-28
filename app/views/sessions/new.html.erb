@@ -5,13 +5,13 @@
     <%= form_for :session, url: login_path do |f| %>
       <div class="form-group">
         <%= f.label :email %>
-        <%= f.email_field :email, :class => "form-control", :placeholder => "Enter email" %>
+        <%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
       </div>
       <div class="form-group">
         <%= f.label :password %>
-        <%= f.password_field :password, :class => "form-control", :placeholder => "Password" %>
+        <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
       </div>
-      <%= f.submit 'Log In', :class => "btn btn-outline-primary" %>
+      <%= f.submit 'Log In', class: "btn btn-outline-primary" %>
     <% end %>
     </div>
   </div>

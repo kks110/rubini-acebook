@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   helper_method :current_user, :logged_in?, :require_user, :already_liked?
 
   def current_user
@@ -20,5 +19,4 @@ class ApplicationController < ActionController::Base
     end
     false
   end
-
 end

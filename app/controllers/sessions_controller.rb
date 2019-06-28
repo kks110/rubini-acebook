@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     @user = User.find_by_email(params[:session][:email])
@@ -9,7 +8,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome #{@user.username}"
       redirect_to posts_path
     else
-      flash[:error] = "Incorrect details. Please try again."
+      flash[:error] = 'Incorrect details. Please try again.'
       render 'new'
     end
   end
