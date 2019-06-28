@@ -21,9 +21,17 @@ bundle install
 ```
 
 ## Usage
-Run the migration files to ensure you have the databases.
+Run the migration files to ensure you have the databases and launch the server.
 ```bash
 rails db:migrate
+rails server
+```
+
+## Run the tests
+Run the unit
+```bash
+rails test
+rails test:system
 ```
 
 ## You're good to go!
