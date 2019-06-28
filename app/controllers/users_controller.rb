@@ -22,10 +22,10 @@ class UsersController < ApplicationController
     @user = current_user
 
     if @user.update(user_params)
-      flash[:success] = "Your details have been updated"
+      flash[:success] = 'Your details have been updated'
       redirect_to profile_path
     else
-      flash[:error] = "Please try again"
+      flash[:error] = 'Please try again'
       render 'edit'
     end
   end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     session[:user_id] = nil
-    flash[:success] = "Your account has been deleted"
+    flash[:success] = 'Your account has been deleted'
     redirect_to login_path
   end
 
@@ -43,5 +43,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
-
 end

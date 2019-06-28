@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   before_action :require_user
   before_action :correct_user, only: [:edit, :update, :destroy]
   helper_method :time_calculation
@@ -20,7 +19,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      flash[:success] = "Your post has been added"
+      flash[:success] = 'Your post has been added'
       redirect_to posts_path
     else
       render 'new'
@@ -31,7 +30,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update(post_params)
-      flash[:success] = "Your post has been updated"
+      flash[:success] = 'Your post has been updated'
       redirect_to posts_path
     else
       render 'edit'
@@ -41,7 +40,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:success] = "Your post has been deleted"
+    flash[:success] = 'Your post has been deleted'
     redirect_to posts_path
   end
 
@@ -50,13 +49,13 @@ class PostsController < ApplicationController
     if time_difference_in_sec < 60
       "#{time_difference_in_sec.to_i} seconds ago"
     elsif time_difference_in_sec < 3600
-      "#{(time_difference_in_sec/60).to_i} minutes ago"
-    elsif time_difference_in_sec < 86400
-      "#{((time_difference_in_sec/60)/60).to_i} hours ago"
-    elsif time_difference_in_sec < 31540000
-      "#{(((time_difference_in_sec/60)/60)/24).to_i} days ago"
+      "#{(time_difference_in_sec / 60).to_i} minutes ago"
+    elsif time_difference_in_sec < 86_400
+      "#{((time_difference_in_sec / 60) / 60).to_i} hours ago"
+    elsif time_difference_in_sec < 31_540_000
+      "#{(((time_difference_in_sec / 60) / 60) / 24).to_i} days ago"
     else
-      "Over 1 year old"
+      'Over 1 year old'
     end
   end
 
